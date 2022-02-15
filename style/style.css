@@ -1,0 +1,219 @@
+:root {
+    --black: #171321;
+    --dkblue: #0d314b;
+    --plum: #4b0d49;
+    --hotmag: #ff17e4;
+    --magenta: #e310cb;
+    --orange: #f57842;
+    --aqua: #86fbfb;
+    --white: #f7f8fa;
+    --font-size: 1.3rem;
+}
+/* border box model: https://css-tricks.com/box-sizing/ */
+html {
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+    
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+/* generic styles for the page */
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: var(--font-size);
+}
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+a {
+    color: var(--orange);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--hotmag);
+    text-decoration: none;
+}
+/* nav bar styles */
+/* animation for call button */
+@keyframes call {
+    from{
+        border: solid 1px var(--aqua);
+    }
+    25%{
+        border-top: solid 1px var(--orange);
+    }
+    50%{
+        /* border-top: solid 1px var(--aqua); */
+        border-right: solid 1px var(--orange);
+    }
+     75%{
+        /* border-top: solid 1px var(--aqua);
+        border-right: solid 1px var(--aqua); */
+        border-bottom: solid 1px var(--orange);
+    } 
+    to{
+        border: solid 1px var(--orange);
+        /* border-top: solid 1px var(--aqua);
+        border-right: solid 1px var(--aqua);
+        border-bottom: solid 1px var(--aqua);
+        border-left: solid 1px var(--orange); */
+    }
+   
+}
+nav{
+    font-size: 80%;
+    padding: 1rem;
+}
+nav ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+nav a{
+    text-decoration: none;
+    color: var(--white);
+    display: block;
+    
+}
+nav a:hover{
+    color: var(--orange);
+    /* border-bottom: solid var(--orange) 5px; */
+}
+nav li:first-child{
+    flex-basis: 100%;
+    text-align: center;
+}
+/* for call action */
+nav li:last-child{
+    
+    border: solid var(--aqua) 1px;
+    background-color: var(--black);
+    color: var(--aqua);
+    padding: 5px 10px;
+    border-radius: 3px;
+    animation-name: call;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+nav li:last-child a:hover{
+    color: var(--aqua);
+    
+}
+.active{
+    color: var(--aqua);
+}
+/* intro styles */
+
+#intro {
+    padding-bottom: 4rem;
+    padding-left: 1rem;
+    padding-top: 5rem;
+    border-bottom: 2px solid var(--aqua);
+}
+
+#intro p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#intro .name {
+    font-size: 1rem;
+}
+
+.name span {
+    font-size: 4rem;
+    color: var(--aqua);
+    display: block;
+    font-weight: 300;
+}
+
+#intro h2 {
+    font-size: 4rem;
+}
+#intro p a span{
+    color: #f57842;
+    text-decoration: none;
+}
+
+/* footer  */
+footer{
+    text-align: center;
+    font-size: 80%;
+}
+footer ul{
+    padding: 0;
+    padding-bottom: 0.5rem;
+    margin: 0;
+    margin-top: 1rem;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+footer a{
+        text-decoration: none;
+        color: var(--white);
+        display: block;
+        padding: 1rem;
+        border-radius: 10px;
+}
+
+footer a:hover{
+    color: var(--orange);
+}
+/* For smaller screen like mobile, decreasing font size */
+
+@media (max-width : 430px) {
+
+    #intro .name span{
+        font-size: 2rem;
+    }
+    #intro h2{
+        font-size: 2rem;
+    }
+    footer{
+        text-align: center;
+    }
+    footer ul{
+        display: inline-block;
+        text-align: left;
+        padding-bottom: none;
+    }
+    footer li{
+        margin-bottom: 1rem;
+    }
+    footer a{
+        padding : 0;
+    }
+    
+}
+/* For larger screens Nav Bar Streches.. */
+@media (min-width: 850px) {
+    nav{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    nav li:first-child {
+        flex-basis: auto;
+        text-align: left;
+        margin-right: auto;
+      }
+}
